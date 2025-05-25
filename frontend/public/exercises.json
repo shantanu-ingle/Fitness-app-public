@@ -1,0 +1,33 @@
+{
+  "chest": [
+    { "name": "Push-Ups", "difficulty": "Beginner" },
+    { "name": "Dumbbell Bench Press", "difficulty": "Beginner" },
+    { "name": "Barbell Bench Press", "difficulty": "Intermediate" },
+    { "name": "Weighted Dips", "difficulty": "Advanced" }
+  ],
+  "shoulders": [
+    { "name": "Dumbbell Lateral Raise", "difficulty": "Beginner" },
+    { "name": "Seated Arnold Press", "difficulty": "Intermediate" },
+    { "name": "Military Press", "difficulty": "Intermediate" }
+  ],
+  "legs": [
+    { "name": "Bodyweight Squats", "difficulty": "Beginner" },
+    { "name": "Barbell Squats", "difficulty": "Intermediate" },
+    { "name": "Pistol Squats", "difficulty": "Advanced" }
+  ],
+  "biceps": [
+    { "name": "Dumbbell Curls", "difficulty": "Beginner" },
+    { "name": "Barbell Curls", "difficulty": "Intermediate" },
+    { "name": "Chin-Ups", "difficulty": "Advanced" }
+  ],
+  "triceps": [
+    { "name": "Tricep Dips", "difficulty": "Beginner" },
+    { "name": "Tricep Pushdowns", "difficulty": "Intermediate" },
+    { "name": "Close-Grip Bench Press", "difficulty": "Advanced" }
+  ],
+  "others": [
+    { "name": "Plank", "difficulty": "Beginner" },
+    { "name": "Russian Twists", "difficulty": "Intermediate" },
+    { "name": "Handstand Hold", "difficulty": "Advanced" }
+  ]
+}

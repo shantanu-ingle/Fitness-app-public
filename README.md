@@ -1,4 +1,4 @@
-# Fitness App (Public Version)
+# Fitness App
 
 ## Overview
 The Fitness App is a web application designed to help users create personalized workout plans and explore a library of exercises. It consists of a Next.js frontend and an Express.js backend, with MongoDB as the database. This public repository excludes `node_modules` and `.env` files for security and size reasons.

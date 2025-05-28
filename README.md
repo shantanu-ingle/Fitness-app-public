@@ -35,9 +35,14 @@ npm run dev         # Start frontend development server
 cd backend          # Navigate to backend directory
 npm install         # Install backend dependencies
 ```
+
 #### Now, create a .env file inside the backend/ directory and add your MongoDB connection string:
 MONGO_URI=your-mongodb-connection-string
 
 ```bash
 npm start
 ```
+
+
+#### Sample Images
+![Screenshot 2025-05-28 171114](https://github.com/user-attachments/assets/d4e3ff10-b562-48ae-89fc-b550b98bedc2)

@@ -1,4 +1,4 @@
-# Fitness App (Public Version)
+# Fitness App
 
 ## Overview
 The Fitness App is a web application designed to help users create personalized workout plans and explore a library of exercises. It consists of a Next.js frontend and an Express.js backend, with MongoDB as the database. This public repository excludes `node_modules` and `.env` files for security and size reasons.
@@ -26,3 +26,18 @@ The Fitness App is a web application designed to help users create personalized 
 ```bash
 git clone https://github.com/shantanu-ingle/fitness-app-public.git
 cd fitness-app-public
+```
+```bash
+cd frontend         # Navigate to frontend directory
+npm install         # Install frontend dependencies
+npm run dev         # Start frontend development server
+
+cd backend          # Navigate to backend directory
+npm install         # Install backend dependencies
+```
+#### Now, create a .env file inside the backend/ directory and add your MongoDB connection string:
+MONGO_URI=your-mongodb-connection-string
+
+```bash
+npm start
+```

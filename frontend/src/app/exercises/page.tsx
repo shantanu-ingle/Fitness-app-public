@@ -13,6 +13,7 @@ interface Exercise {
   pairingScore: number;
   ageGroup: string;
   weightCategory: string;
+  imageUrl: string; // Added imageUrl field
 }
 
 const getDifficultyStyle = (difficulty: string) => {
@@ -372,7 +373,7 @@ export default function Exercises() {
                       
                       <div style={exerciseContentStyle}>
                         <Image
-                          src={`https://picsum.photos/200/300?random=${ex._id}`}
+                          src={ex.imageUrl} // Updated to use imageUrl from exercise data
                           alt={ex.name}
                           width={80}
                           height={80}

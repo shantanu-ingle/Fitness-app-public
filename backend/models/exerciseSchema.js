@@ -47,6 +47,7 @@ const exerciseSchema = new mongoose.Schema({
     required: true,
     enum: ['low', 'moderate', 'high']
   },
+  imageUrl: { type: String, required: true }, // Added imageUrl field
   trainingVolume: {
     type: {
       'Weight Loss': { type: trainingVolumeSchema, required: true },

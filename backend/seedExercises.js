@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const Exercise = require('./models/exerciseSchema');
 
+
 const exercises = [
   // Chest (6 exercises)
   {
@@ -17,6 +18,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/push-ups/push-ups-800.jpg?w=300&h=200', // Person doing push-ups
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -36,6 +38,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/1497/9682/files/2_a09de347-1652-4b84-96bf-fdc8bbc42481.jpg?v=1648825457?w=300&h=200', // Person doing barbell bench press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -55,6 +58,7 @@ const exercises = [
     goals: ['Muscle Gain', 'Weight Loss'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/incline-dumbbell-bench-press/incline-dumbbell-bench-press-800.avif?w=300&h=200', // Person doing incline dumbbell bench press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 10], rest: 75 },
@@ -74,6 +78,7 @@ const exercises = [
     goals: ['Weight Loss'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/dumbbell-fly/dumbbell-fly-800.avif?w=300&h=200', // Person doing dumbbell flyes
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [10, 12], rest: 45 },
@@ -93,6 +98,7 @@ const exercises = [
     goals: ['Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/1497/9682/files/2_a0cb9dd0-9c03-421e-b1aa-4b93c2b903ff.jpg?v=1653495447?w=300&h=200', // Person doing chest dips
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -112,6 +118,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://www.hsefitness.com/wp-content/uploads/2025/01/High-to-Low-Cable-Crossover-600x600.png.webp?w=300&h=200', // Person doing cable crossovers
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 75 },
@@ -132,6 +139,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-standing-overhead-press.jpg?w=300&h=200', // Person doing overhead press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -151,6 +159,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://kinxlearning.com/cdn/shop/files/exercise-32_1000x.jpg?v=1613157925?w=300&h=200', // Person doing lateral raises
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [10, 12], rest: 45 },
@@ -170,6 +179,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/weighted-front-raise.jpg?w=300&h=200', // Person doing front raises
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [10, 12], rest: 45 },
@@ -189,6 +199,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://s3assets.skimble.com/assets/2287127/image_iphone.jpgw=300&h=200', // Person doing Arnold press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -208,6 +219,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://www.endomondo.com/wp-content/uploads/2024/07/rear-delt-fly-machine-guide.png?w=300&h=200', // Person doing rear delt fly
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 10], rest: 75 },
@@ -227,6 +239,7 @@ const exercises = [
     goals: ['Endurance'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://trainingstation.co.uk/cdn/shop/articles/face-pulls-muscles-used_fe27890e-ac33-489a-bb21-a9bbcc84bfae_922x.png?v=1738219155?w=300&h=200', // Person doing face pull
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 75 },
@@ -247,6 +260,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://www.inspireusafoundation.org/wp-content/cache/flying-press/www.inspireusafoundation.org/Hdl1E3VxvwQ-hqdefault.jpg?w=300&h=200', // Person doing barbell squat
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 120 },
@@ -266,6 +280,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://trainingstation.co.uk/cdn/shop/articles/Lunges-movment_d958998d-2a9f-430e-bdea-06f1e2bcc835_900x.webp?v=1741687877?w=300&h=200', // Person doing lunges
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [10, 12], rest: 60 },
@@ -285,6 +300,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/barbell-romanian-deadlift-from-deficit.jpg?w=300&h=200', // Person doing Romanian deadlift
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 75 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -304,6 +320,7 @@ const exercises = [
     goals: ['Muscle Gain', 'Weight Loss'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/sled-leg-press/sled-leg-press-800.jpgw=300&h=200', // Person doing leg press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -323,6 +340,7 @@ const exercises = [
     goals: ['Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1224.jpg?cb=20250102040457?w=300&h=200', // Person doing Bulgarian split squats
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -342,6 +360,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/0268/4682/2569/files/goblet_squat_with_kettlebells_600x600.webp?v=1725739147?w=300&h=200', // Person doing goblet squat
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [10, 12], rest: 60 },
@@ -362,6 +381,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://www.endomondo.com/wp-content/uploads/2024/07/dumbbell-biceps-curl-guide.png?w=300&h=200', // Person doing dumbbell curls
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 45 },
@@ -381,6 +401,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://i.pinimg.com/736x/f4/a8/57/f4a85746cf9b01be7c8216869e3656e1.jpg?w=300&h=200', // Person doing hammer curls
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 45 },
@@ -400,6 +421,7 @@ const exercises = [
     goals: ['Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://kinxlearning.com/cdn/shop/files/shutterstock_418630567_1400x.jpg?v=1690650014?w=300&h=200', // Person doing chin-ups
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [6, 10], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [5, 8], rest: 90 },
@@ -419,6 +441,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/band-concentration-curl.jpg?w=300&h=200', // Person doing concentration curls
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -438,6 +461,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/ez-barbell-curl.jpg?w=300&h=200', // Person doing barbell curl
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -457,6 +481,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://www.kettlebellkings.com/cdn/shop/articles/Preacher_Curl_Alternatives.png?v=1731324163?w=300&h=200', // Person doing preacher curl
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -477,6 +502,7 @@ const exercises = [
     goals: ['Muscle Gain', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/1497/9682/files/Benefits_of_Mastering_Tricep_Dips.jpg?v=1687254157&width=750?w=300&h=200', // Person doing tricep dips
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [6, 10], rest: 60 },
@@ -496,6 +522,7 @@ const exercises = [
     goals: ['Weight Loss'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://sportivetricksstorage.blob.core.windows.net/images/articles/training/general/overhead-tricep-extension/1-main.webp?w=300&h=200', // Person doing overhead tricep extension
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 45 },
@@ -515,6 +542,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/close-grip-bench-press/howto/close-grip-bench-press-howto-2-800.jpg?w=300&h=200', // Person doing close-grip bench press
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -534,6 +562,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/tricep-rope-pushdown/tricep-rope-pushdown-800.jpg?w=300&h=200', // Person doing tricep pushdown
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 75 },
@@ -553,6 +582,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://anabolicaliens.com/cdn/shop/articles/5f13429eb890e6c107286be3_barbell-skull-crusher-anabolic-aliens-p-500.png?v=1644918985?w=300&h=200', // Person doing skull crushers
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -572,6 +602,7 @@ const exercises = [
     goals: ['Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://cdn.shopify.com/s/files/1/1497/9682/files/1.What_Are_Diamond_Push-Ups_How_to_Do_It.jpg?v=1673013889?w=300&h=200', // Person doing diamond push-ups
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -592,6 +623,7 @@ const exercises = [
     goals: ['Muscle Gain', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://anabolicaliens.com/cdn/shop/articles/199990_400x.png?v=1645089103?w=300&h=200', // Person doing pull-ups
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [6, 10], rest: 90 },
       'Muscle Gain': { sets: [4, 5], reps: [5, 8], rest: 120 },
@@ -611,6 +643,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-bent-over-row.jpg?w=300&h=200', // Person doing bent-over rows
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -630,6 +663,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://anabolicaliens.com/cdn/shop/articles/5f19b4eff633a10684ef6193_wide-grip-lat-pulldown-anabolic-aliens.png?v=1644918521?w=300&h=200', // Person doing lat pulldown
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 75 },
@@ -649,6 +683,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXDkThIy4oVo55s-nv_f1cqaHLUAMZMXGdtg&s?w=300&h=200', // Person doing deadlifts
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [8, 10], rest: 90 },
       'Muscle Gain': { sets: [4, 5], reps: [5, 8], rest: 120 },
@@ -668,6 +703,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4SRSxUB_ia2DIpIH8aCGN25gddzAVWzwxgA&s?w=300&h=200', // Person doing seated cable row
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 12], rest: 60 },
       'Muscle Gain': { sets: [4, 5], reps: [6, 10], rest: 90 },
@@ -687,6 +723,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-single-arm-bent-over-row.jpg?w=300&h=200', // Person doing single-arm dumbbell row
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [12, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 75 },
@@ -707,6 +744,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'low',
+    imageUrl: 'https://fitnessprogramer.com/wp-content/uploads/2021/02/plank.gif?w=300&h=200', // Person doing plank
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [30, 60], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [45, 90], rest: 45 },
@@ -726,6 +764,7 @@ const exercises = [
     goals: ['Weight Loss'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/russian-twist.jpg?w=300&h=200', // Person doing Russian twists
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [20, 30], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [15, 25], rest: 45 },
@@ -745,6 +784,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'high',
+    imageUrl: 'https://liftmanual.com/wp-content/uploads/2023/04/hanging-straight-leg-raise.jpg?w=300&h=200', // Person doing hanging leg raises
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -764,6 +804,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'isolation',
     intensity: 'moderate',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/bicycle-crunch/bicycle-crunch-800.jpg?w=300&h=200', // Person doing bicycle crunches
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [20, 30], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [15, 25], rest: 45 },
@@ -783,6 +824,7 @@ const exercises = [
     goals: ['Weight Loss', 'Endurance'],
     exerciseType: 'compound',
     intensity: 'high',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/mountain-climbers/mountain-climbers-800.jpg?w=300&h=200', // Person doing mountain climbers
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [20, 30], rest: 30 },
       'Muscle Gain': { sets: [3, 4], reps: [15, 25], rest: 45 },
@@ -802,6 +844,7 @@ const exercises = [
     goals: ['Muscle Gain'],
     exerciseType: 'isolation',
     intensity: 'high',
+    imageUrl: 'https://static.strengthlevel.com/images/exercises/ab-wheel-rollout/ab-wheel-rollout-800.jpg?w=300&h=200', // Person doing ab rollout
     trainingVolume: {
       'Weight Loss': { sets: [3, 4], reps: [10, 15], rest: 45 },
       'Muscle Gain': { sets: [3, 4], reps: [8, 12], rest: 60 },
@@ -810,6 +853,7 @@ const exercises = [
   }
 ];
 
+// Connect to MongoDB and seed the database
 mongoose.connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log('MongoDB connected');

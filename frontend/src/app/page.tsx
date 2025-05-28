@@ -143,9 +143,9 @@ export default function Home() {
       {/* Hero Section */}
       <section style={heroSectionStyle}>
         <h1 style={heroTitleStyle}>Welcome to Fitness App</h1>
-<p style={heroSubtitleStyle}>
-  Transform your fitness journey with personalized workout plans, expert guidance, and a community to keep you motivated. Whether you&apos;re a beginner or a pro, we have the tools to help you achieve your goals.
-</p>
+        <p style={heroSubtitleStyle}>
+          Transform your fitness journey with personalized workout plans, expert guidance, and a community to keep you motivated. Whether you're a beginner or a pro, we have the tools to help you achieve your goals.
+        </p>
 
         <button
           onClick={() => router.push('/exercise-planner')}
@@ -174,7 +174,7 @@ export default function Home() {
         >
           <h2 style={infoTitleStyle}>Why Exercise Matters</h2>
           <Image
-            src="https://picsum.photos/200/200?random=1"
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200&h=200" // Person running outdoors, symbolizing exercise benefits
             alt="Person Exercising"
             width={200}
             height={200}
@@ -192,7 +192,7 @@ export default function Home() {
         >
           <h2 style={infoTitleStyle}>About Our App</h2>
           <Image
-            src="https://picsum.photos/200/200?random=2"
+            src="https://images.unsplash.com/photo-1611162617210-7b7e3c8b698e?w=200&h=200" // Smartphone showing a fitness app interface
             alt="App Interface"
             width={200}
             height={200}
@@ -210,7 +210,7 @@ export default function Home() {
         >
           <h2 style={infoTitleStyle}>Get Started</h2>
           <Image
-            src="https://picsum.photos/200/200?random=3"
+            src="https://images.unsplash.com/photo-1518611012118-696614d536d2?w=200&h=200" // Person tying shoelaces, ready to start a workout
             alt="Starting Fitness"
             width={200}
             height={200}

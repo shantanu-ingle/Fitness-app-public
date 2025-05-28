@@ -16,6 +16,7 @@ interface Exercise {
   goals: string[];
   exerciseType: 'compound' | 'isolation';
   intensity: 'low' | 'moderate' | 'high';
+  imageUrl: string; // Added imageUrl field
   trainingVolume: { [key: string]: { sets: number[]; reps: number[]; rest: number } };
 }
 
@@ -505,13 +506,13 @@ export default function SmartFitnessPlanner() {
     height: '4px',
     overflow: 'hidden'
   };
-    const getProgressFillStyle = (isExpanded: boolean): React.CSSProperties => ({
-      height: '100%',
-      borderRadius: '4px',
-      transition: 'all 0.3s ease',
-      width: isExpanded ? '100%' : '0%',
-      backgroundColor: isExpanded ? '#3b82f6' : '#9ca3af'
-    });
+  const getProgressFillStyle = (isExpanded: boolean): React.CSSProperties => ({
+    height: '100%',
+    borderRadius: '4px',
+    transition: 'all 0.3s ease',
+    width: isExpanded ? '100%' : '0%',
+    backgroundColor: isExpanded ? '#3b82f6' : '#9ca3af'
+  });
 
   if (loading) {
     return (
@@ -665,7 +666,7 @@ export default function SmartFitnessPlanner() {
                             </div>
                             <div style={exerciseInfoStyle}>
                               <Image
-                                src={`https://picsum.photos/80/80?random=${ex._id}`}
+                                src={ex.imageUrl} // Updated to use imageUrl from exercise data
                                 alt={ex.name}
                                 width={80}
                                 height={80}
@@ -676,15 +677,13 @@ export default function SmartFitnessPlanner() {
                                   Click to {expandedIds.has(ex._id) ? 'hide' : 'view'} instructions
                                 </p>
                                 <div style={progressBarStyle}>
-                            <div style={getProgressFillStyle(expandedIds.has(ex._id))}></div>
-                          </div>
+                                  <div style={getProgressFillStyle(expandedIds.has(ex._id))}></div>
+                                </div>
                                 <div style={trainingVolumeStyle}>
                                   <span>Sets: {ex.trainingVolume[goal].sets.join('-')}</span>
                                   <span>Reps: {ex.trainingVolume[goal].reps.join('-')}</span>
                                   <span>Rest: {ex.trainingVolume[goal].rest}s</span>
-                                  
                                 </div>
-                                
                               </div>
                             </div>
                             {expandedIds.has(ex._id) && (
